@@ -45,3 +45,26 @@ cutadapt -j 4 --no-indels -e 0.1 --action=none \
   - Unassigned reads go to unknown_R1/R2.fastq.gz
   - `j 2`  Use 2 threads for faster processing
 
+
+## 🧩 Concatenate Samples by Species
+
+After demultiplexing, individual samples can be grouped by species using a CSV file which contain the species name in the first column and the sample name in the second column. 
+E.g:
+```csv
+Pluchei,Pluc_33_new
+Pluchei,Pluc_34_new
+Pluchei,Pluc_35_new
+Hogna,Hogna 54
+Hogna,Hogna 55
+Hogna,Hogna 58
+...
+```
+
+You can use the provided script `concat_by_species.sh` to concatenate the demultiplexed FASTQ files by species as follow:
+
+```./concat_by_species.sh <CSV_FILE> <DEMUX_DIR> <OUTPUT_DIR```
+
+- `CSV_FILE`: CSV file mapping species (1st column) to sample names (2nd column)
+- `DEMUX_DIR`: Path to directory containig the demultiplexed FASTQ files
+- `OUTPUT_DIR`: Output directory for concatenated species files
+
