@@ -72,12 +72,12 @@ You can use the provided script `concat_by_species.sh` to concatenate the demult
 
 ---
 
-# 3. BRB-seq Snakemake Workflow 
+# 2. BRB-seq Snakemake Workflow 
 
 
 This Snakemake pipeline processes BRB-seq data through several stages, including quality control with FastQC, species-specific genome indexing, read alignment using STARsolo with integrated barcode error correction, BAM file concatenation and sorting, gene annotation extension with GeneExt, re-alignment against the extended annotation, and final count matrix generation.
 
-## 3.1 Prepare Inputs
+## 2.1 Prepare Inputs
 
 1. **Input tables**:
 Before running the workflow, you must prepare two files: the BRBseq Library Table and the Species Table.
@@ -117,7 +117,7 @@ Before running the workflow, you must prepare two files: the BRBseq Library Tabl
 
 
 
-## 3.2 Edit the Configuration File
+## 2.2 Edit the Configuration File
 
 All paths and parameters are defined in `config/config.yaml`. Key fields:
 
@@ -136,7 +136,7 @@ All paths and parameters are defined in `config/config.yaml`. Key fields:
     - `[libraryname]_R2.fastq.gz`
 
 
-## 3.3 Run Snakemake
+## 2.3 Run Snakemake
 
 Launch the pipeline with:
 
