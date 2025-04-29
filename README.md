@@ -135,6 +135,15 @@ All paths and parameters are defined in `config/config.yaml`. Key fields:
 
 ---
 
+## 3.3 Run Snakemake
+
+Launch the pipeline with:
+
+```bash
+snakemake --cores <num_cores> --use-conda
+```
+
+---
 
 ## Pipeline Overview
 
@@ -148,15 +157,5 @@ All paths and parameters are defined in `config/config.yaml`. Key fields:
 | **STARsolo Re-alignment** | Reads are realigned using the updated annotation from GeneExt. |
 | **Count Matrix Generation** | An R script converts STARsolo outputs into final count matrices. |
 
----
-
-
-## 3.3 Run Snakemake
-
-Launch the pipeline with:
-
-```bash
-snakemake --cores <num_cores> --use-conda
-```
 
 
