@@ -129,7 +129,7 @@ All paths and parameters are defined in `config/config.yaml`. Key fields:
 - `whitelist`: Path to the barcode whitelist `.txt` file.
 - `snakemake_dir_path`: Root directory of the workflow.
 
-> **Important:**  
+> [!IMPORTANT]
 >- The barcode whitelist (`whitelist`) is *mandatory* and is typically provided by the sequencing center.
 >- Place all FASTQ files under `config["BRBseq_data"]`. Files must follow this naming pattern:
     - `[libraryname]_R1.fastq.gz`
