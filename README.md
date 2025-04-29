@@ -1,6 +1,8 @@
 # BRB‑seq Workflow
 
-## 1. Demultiplex BRBseq library coming from mutiple species
+## 1. Demultiplexing and Species-Level Reorganization of Multi-Species Libraries
+
+### 1.1 Demultiplex BRBseq library coming from mutiple species
 
 As multiple species were multiplexed into a single library, we first need to **demultiplex the library per sample** and then **re-concatenate the samples coming from the same species**.
 
@@ -46,7 +48,7 @@ cutadapt -j 4 --no-indels -e 0.1 --action=none \
   - `j 2`  Use 2 threads for faster processing
 
 
-## 2. Concatenate Samples by Species
+### 1.2 Concatenate Samples by Species
 
 After demultiplexing, individual samples can be grouped by species using a CSV file which contain the species name in the first column and the sample name in the second column. 
 E.g:
