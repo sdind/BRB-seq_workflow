@@ -68,7 +68,7 @@ You can use the provided script `concat_by_species.sh` to concatenate the demult
 - `DEMUX_DIR`: Path to directory containig the demultiplexed FASTQ files
 - `OUTPUT_DIR`: Output directory for concatenated species files
 
-
+---
 
 # 3. BRB-seq Snakemake Workflow 
 
@@ -133,7 +133,6 @@ All paths and parameters are defined in `config/config.yaml`. Key fields:
     - `[libraryname]_R1.fastq.gz`
     - `[libraryname]_R2.fastq.gz`
 
----
 
 ## 3.3 Run Snakemake
 
