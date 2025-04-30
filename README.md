@@ -80,23 +80,21 @@ This Snakemake pipeline processes BRB-seq data through several stages, including
 ### 2.1 Prepare Inputs
 
 
-1. **Input tables**:  
+
+
+1. **Input tables**:
 Before running the workflow, you must prepare two files: the BRBseq Library Table and the Species Table.
-
-- 1. **BRBseq Library Table** (`config["library_table"]`)  
-  A CSV table containing information for all your samples.  
-  Each row corresponds to one sample, and the following fields are required:
-    - `barcode`: Barcode of each sample.
-    - `library`: Library name.
-
-      > [!WARNING]
-      > Library name must match the raw read filename prefix!
-
-    - `sample`: Sample name *(optional for the workflow, but essential for analysis)*.
-    - `anatId`: Anatomical entity (UBERON ID) *(optional)*.
-    - `stageId`: Developmental stage (UBERON ID) *(optional)*.
-    - `speciesId`: NCBI Taxonomy ID of the species.
-
+    - 1. **BRBseq Library Table** (`config["library_table"]`). 
+    A CSV table containing information for all your samples.
+    Each row correspond to one sample, and the following fields are required:
+          - `barcode`: Barcode of each sample.
+          - `library`: Library name.
+            [!WARNING] Library name must match the raw read filename prefix!
+          - `sample`: Sample name *(optional for the workflow, but essential for analysis)*.
+          - `anatId`: Anatomical entity (UBERON ID) *(optional)*.
+          - `stageId`: Developmental stage (UBERON ID) *(optional)*.
+          - `speciesId`: NCBI Taxonomy ID of the species.
+            
     - 2. **Species Table** (`config["species_table"]`)
     A CSV table containing information for each species. Each row should correspond to one species and must include the following fields:
           - `speciesId`: Must match the `speciesId` in the library table.
