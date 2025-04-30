@@ -86,8 +86,8 @@ Before running the workflow, you must prepare two files: the BRBseq Library Tabl
     Each row correspond to one sample, and the following fields are required:
           - `barcode`: Barcode of each sample.
           -  `library`: Library name.
-> [!WARNING]
-> Library name (must match the raw read filename prefix
+          -  > [!WARNING]
+             > Library name (must match the raw read filename prefix
           - `sample`: Sample name *(optional for the workflow, but essential for analysis)*.
           - `anatId`: Anatomical entity (UBERON ID) *(optional)*.
           - `stageId`: Developmental stage (UBERON ID) *(optional)*.
