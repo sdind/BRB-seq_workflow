@@ -1,0 +1,31 @@
+#!/bin/bash -l
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 8
+#SBATCH --mem=10G
+#SBATCH --time=08:00:00
+#SBATCH --mail-user=sagane.joye@unil.ch
+#SBATCH --error=snakemake.err
+
+conda activate cutadapt
+
+cd /work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/demutiplex_per_species
+
+# 1. The barcode file need to be in fa format. If necessary convert from csv using this command: awk -F',' '{print ">"$1"\n"$2}' barcodes.csv > barcodes.fasta
+
+BRB_R1='/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/demutiplex_per_species/data/BRB3_Robin_L1_L2_L3_R1.fastq.gz'
+BRB_R2='/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/demutiplex_per_species/data/BRB3_Robin_L1_L2_L3_R2.fastq.gz'
+barcodes='/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/demutiplex_per_species/barcodes/plate3.fa'
+
+cutadapt -j 8 --no-indels -e 0.1 --action=none \
+  -g ^file:$barcodes \
+  -o demux/{name}_R1.fastq.gz -p demux/{name}_R2.fastq.gz \
+  --untrimmed-output demux/unknown_R1.fastq.gz --untrimmed-paired-output demux/unknown_R2.fastq.gz \
+  $BRB_R1 $BRB_R2
+
+
+# 2. Re-concatenante files coming from the same species using concat_per_species.sh script: 
+
+species_sample_csv="/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/demutiplex_per_species/barcodes/plate3_species_samples.csv"
+
+./concat_by_species.sh $species_sample_csv demux species_concat
