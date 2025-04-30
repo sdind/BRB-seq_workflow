@@ -1,0 +1,7 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base=4.2.0
+  - r-data.table
+  - r-matrix

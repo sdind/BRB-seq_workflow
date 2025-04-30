@@ -1,0 +1,9 @@
+#parameters
+snakemake_dir_path: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/BRBseq_worflow_v1'
+library_table: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/lib_tables/BRBseqLibrary_plate3_subset2.csv'
+species_table: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/species_infos.csv'
+BRBseq_data: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/data'
+annotation_dir: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/annotation'
+genome_dir: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/genomes'
+whitelist: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/whitelists/whitelist_plate3.txt'
+geneext_script: '/work/FAC/FBM/DEE/mrobinso/moult/sagane/packages/GeneExt/geneext.py'

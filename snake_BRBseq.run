@@ -1,0 +1,15 @@
+#!/bin/bash -l
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem=2G
+#SBATCH --time=70:00:00
+#SBATCH --mail-user=sagane.joye@unil.ch
+#SBATCH --error=snakemake.err
+
+conda activate snakemake2
+
+cd /work/FAC/FBM/DEE/mrobinso/moult/sagane/BRBseq/BRBseq_worflow_v1
+
+snakemake --profile slurm --use-conda --use-singularity --unlock
+snakemake --profile slurm --use-conda --use-singularity --rerun-incomplete --printshellcmds

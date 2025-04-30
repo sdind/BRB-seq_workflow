@@ -1,0 +1,5 @@
+﻿speciesId,species_name,genome_id,annotation_id,source
+41365,Scolopendra cingulata,ScoCin01_asm_decontaminated.fasta,ScoCin01_braker.gtf,braker
+29022,Scutigera coleoptrata,ScuCol01_asm_decontaminated.fasta,ScuCol01_braker.gtf,braker
+6973,Blattella germanica,GCA_003018175.1_Bger_1.1_genomic.fna,GCA_003018175.1_Bger_1.1_genomic.gtf,ncbi
+184086,Archispirostreptus,ArcSyr_v2_asm_decontaminated.fasta,ArcSyr_v2_braker.gtf,braker

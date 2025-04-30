@@ -1,0 +1,37 @@
+configfile: 'config/config.yaml'
+include: 'rules/processing.smk'
+
+
+import pandas as pd
+
+# Import BRBseqLibrary.csv table and create libraries config with all librairies 
+library_table = pd.read_csv(config["library_table"])
+library_table["speciesId"] = library_table["speciesId"].astype(str)
+libraries = set(library_table["library"].astype(str).tolist())
+config["libraries"] = libraries
+print("libraries:")
+print(config["libraries"])
+
+# Extract the unique species IDs from BRBseqLibrary.csv
+unique_species = library_table["speciesId"].astype(str).unique().tolist()
+config["unique_species"] = unique_species
+print("unique species:")
+print(unique_species)
+
+rule all:
+    input:
+        expand(f"{config['snakemake_dir_path']}/results/QC/{{library}}_R1_fastqc.html",
+               library=config["libraries"]),
+        expand(f"{config['snakemake_dir_path']}/results/QC/{{library}}_R2_fastqc.html",
+               library=config["libraries"]),
+        expand(f"{config['snakemake_dir_path']}/results/index/STAR_index_{{speciesId}}",
+               speciesId=config["unique_species"]),
+        # Count matrices from the matrix_to_counts rule for every library.
+        expand(f"{config['snakemake_dir_path']}/results/count_matrix/{{library}}/umi.counts.txt", library=config["libraries"]),
+        expand(f"{config['snakemake_dir_path']}/results/extended_annotation/count_matrix/{{library}}/umi.counts.txt", library=config["libraries"]),
+        expand(f"{config['snakemake_dir_path']}/results/star_solo/concat_bam/{{sp}}_all.bam", sp=config["unique_species"]),
+        expand(f"{config['snakemake_dir_path']}/results/extended_annotation/{{sp}}_extended_annotation.gtf", sp=config["unique_species"])
+
+
+# the RNAseq files need to be named as "library_name_R1/R2.fastq.gz"   library_name must match "library" column from library_table ! 
+

@@ -1,0 +1,17 @@
+name: geneext
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - python=3.10
+  - bedtools
+  - gffutils
+  - macs2=2.2.7.1
+  - numpy
+  - pandas
+  - pysam
+  - rich
+  - samtools
+
+
