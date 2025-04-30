@@ -1,7 +1,7 @@
 The reformat_gtf_for_GeneExt.py script is designed to correct common formatting issues in GTF files so that they are compatible with GeneExt. 
 
 In particular, it:
--Ensures that gene features include a gene_id attribute.
+- Ensures that gene features include a gene_id attribute.
 - Ensures that transcript features include both gene_id and transcript_id attributes.
 - Reorders attributes in exon, CDS, intron (and similar) lines so that gene_id appears before transcript_id.
 This minimal formatting is required by GeneExt to correctly parse gene, transcript, and exon information.
